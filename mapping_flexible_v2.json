@@ -1,0 +1,271 @@
+{
+  "version": "2.0",
+  "purpose": "Flexible correction of likely English interjections misrecognized as foreign characters in English datasets",
+  "scope": "English datasets only",
+  "rules": {
+    "normalize_unicode": true,
+    "normalize_whitespace": true,
+    "ignore_adjacent_punctuation": true,
+    "match_inside_mixed_english_text": true,
+    "match_repeated_interjections": true,
+    "preserve_unknown_foreign_text": true,
+    "never_translate_arbitrary_chinese_words": true
+  },
+  "exact_phrases": {
+    "嗯哼": {
+      "replacement": "uh-huh",
+      "confidence": "high"
+    },
+    "嗯哼 uh huh": {
+      "replacement": "uh-huh uh-huh",
+      "confidence": "high"
+    },
+    "嗯 uh": {
+      "replacement": "um uh",
+      "confidence": "high"
+    },
+    "嗯 huh": {
+      "replacement": "um huh",
+      "confidence": "high"
+    },
+    "嗯 hmm": {
+      "replacement": "um hmm",
+      "confidence": "high"
+    },
+    "yeah 诶": {
+      "replacement": "yeah eh",
+      "confidence": "high"
+    },
+    "oh 诶": {
+      "replacement": "oh eh",
+      "confidence": "high"
+    },
+    "uh 哼": {
+      "replacement": "uh hmm",
+      "confidence": "high"
+    }
+  },
+  "single_characters": {
+    "嗯": {
+      "replacement": "um",
+      "alternatives": [
+        "uh",
+        "mm-hmm",
+        "mhm"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "medium"
+    },
+    "啊": {
+      "replacement": "ah",
+      "alternatives": [
+        "aah",
+        "uh"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "medium"
+    },
+    "哼": {
+      "replacement": "hmm",
+      "alternatives": [
+        "hm"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "high"
+    },
+    "诶": {
+      "replacement": "eh",
+      "alternatives": [
+        "hey",
+        "ay"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "medium"
+    },
+    "欸": {
+      "replacement": "eh",
+      "alternatives": [
+        "hey",
+        "ay"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "medium"
+    },
+    "哈": {
+      "replacement": "ha",
+      "mode": "token_or_mixed",
+      "confidence": "high"
+    },
+    "呵": {
+      "replacement": "heh",
+      "mode": "token_or_mixed",
+      "confidence": "medium"
+    },
+    "嘿": {
+      "replacement": "hey",
+      "alternatives": [
+        "heh"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "medium"
+    },
+    "哎": {
+      "replacement": "hey",
+      "alternatives": [
+        "ah",
+        "oh"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "low"
+    },
+    "喂": {
+      "replacement": "hey",
+      "alternatives": [
+        "hello"
+      ],
+      "mode": "token_or_mixed",
+      "confidence": "low"
+    },
+    "咳": {
+      "replacement": "cough",
+      "mode": "token_or_mixed",
+      "confidence": "low"
+    },
+    "哦": {
+      "replacement": "oh",
+      "mode": "token_or_mixed",
+      "confidence": "high"
+    },
+    "喔": {
+      "replacement": "oh",
+      "mode": "token_or_mixed",
+      "confidence": "high"
+    }
+  },
+  "repetition_rules": {
+    "哈": {
+      "replacement_unit": "ha",
+      "separator": " ",
+      "minimum_repetitions": 2,
+      "confidence": "high"
+    },
+    "呵": {
+      "replacement_unit": "heh",
+      "separator": " ",
+      "minimum_repetitions": 2,
+      "confidence": "medium"
+    },
+    "哼": {
+      "replacement_unit": "hmm",
+      "separator": "-",
+      "minimum_repetitions": 2,
+      "confidence": "medium"
+    },
+    "嘿": {
+      "replacement_unit": "hey",
+      "separator": " ",
+      "minimum_repetitions": 2,
+      "confidence": "medium"
+    },
+    "嗯": {
+      "replacement_unit": "mm",
+      "separator": "-",
+      "minimum_repetitions": 2,
+      "confidence": "medium"
+    }
+  },
+  "observed_character_counts": {
+    "唢": 14512,
+    "了": 14360,
+    "哼": 12709,
+    "嘿": 11028,
+    "吗": 9488,
+    "么": 8058,
+    "嗯": 7995,
+    "呵": 6645,
+    "哈": 6513,
+    "ん": 4073,
+    "诶": 3557,
+    "呐": 3313,
+    "咳": 2265,
+    "哎": 1614,
+    "啊": 1214,
+    "呀": 858,
+    "呢": 818,
+    "喂": 590
+  },
+  "review_only_observed_characters": {
+    "唢": {
+      "count": 14512,
+      "reason": "Likely part of 唢呐 or other Chinese lexical content; do not map automatically"
+    },
+    "了": {
+      "count": 14360,
+      "reason": "Chinese grammatical/content character"
+    },
+    "吗": {
+      "count": 9488,
+      "reason": "Chinese question particle; ambiguous in English audio"
+    },
+    "么": {
+      "count": 8058,
+      "reason": "Chinese lexical/grammatical character"
+    },
+    "ん": {
+      "count": 4073,
+      "reason": "Japanese kana; interpretation is uncertain"
+    },
+    "呐": {
+      "count": 3313,
+      "reason": "Could be an interjection but is ambiguous"
+    },
+    "呀": {
+      "count": 858,
+      "reason": "Could be an interjection but is ambiguous"
+    },
+    "呢": {
+      "count": 818,
+      "reason": "Chinese grammatical particle"
+    }
+  },
+  "accepted_english_characters": {
+    "policy": "Treat these characters as legitimate English transcript content; do not flag them as foreign characters.",
+    "ascii_letters": "A-Z a-z",
+    "digits": "0-9",
+    "whitespace": "space, tab, newline, carriage return",
+    "punctuation": ". , ! ? : ; ' \" ( ) [ ] { } < > - _ / \\",
+    "currency": [
+      "$",
+      "€",
+      "£",
+      "¥",
+      "¢"
+    ],
+    "common_symbols": [
+      "%",
+      "&",
+      "@",
+      "#",
+      "+",
+      "=",
+      "*",
+      "~",
+      "^",
+      "|"
+    ],
+    "allowed_unicode_punctuation": [
+      "…",
+      "—",
+      "–",
+      "“",
+      "”",
+      "‘",
+      "’"
+    ],
+    "notes": [
+      "Dollar signs such as $ are accepted and must not be counted as foreign characters.",
+      "Symbols are accepted independently of surrounding words.",
+      "This allowlist applies to English datasets; Chinese-language validation remains separate."
+    ]
+  }
+}

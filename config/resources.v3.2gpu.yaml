@@ -1,0 +1,11 @@
+extends: resources.v3.oto104_magiczh.yaml
+scheduler:
+  gpu_lock_root: /tmp/oto141_gpu_locks
+stages:
+  dnsmos: {workers: 2}
+  vad: {workers: 2}
+  enhance: {workers: 2}
+  asr1: {workers: 2}
+  asr2: {workers: 2}
+  asr3: {workers: 2}
+  align: {workers: 2}
